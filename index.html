@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JioExter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{background:#0a0a0a;color:white;font-family:Arial;text-align:center;margin:0;}
+header{background:#111;padding:15px;font-size:22px;font-weight:bold;}
+.card{background:#1e1e1e;margin:15px;padding:20px;border-radius:15px;}
+button{padding:10px 20px;margin:5px;border:none;border-radius:20px;color:white;font-weight:bold;}
+.green{background:#00c853;}
+.red{background:#d50000;}
+.blue{background:#0066ff;}
+</style>
+</head>
+<body>
+
+<header>JioExter Simulation</header>
+
+<div class="card">
+<h2>Lottery</h2>
+<p>Your Ticket: <span id="ticket">-</span></p>
+<button class="blue" onclick="generateTicket()">Generate Ticket</button>
+</div>
+
+<div class="card">
+<h2>Trading Auto Graph</h2>
+<h3 id="price">100</h3>
+</div>
+
+<script>
+function generateTicket(){
+let num = Math.floor(10000 + Math.random()*90000);
+document.getElementById("ticket").innerText = num;
+}
+
+let price = 100;
+setInterval(()=>{
+let move = Math.random()>0.5?1:-1;
+price += move * Math.random()*5;
+document.getElementById("price").innerText = price.toFixed(2);
+},1000);
+</script>
+
+</body>
+</html>
